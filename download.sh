@@ -12,5 +12,5 @@ command -v yt-dlp >/dev/null || {
 }
 
 echo "Downloading to /tmp"
-yt-dlp --cookies COOKIES -o "/tmp/%(title)s.%(ext)s" -f "bestvideo[vcodec^=avc]+bestaudio[acodec^=aac]/best[vcodec^=avc]/best" --merge-output-format mp4 "$1"
+yt-dlp --remote-components ejs:github --js-runtimes node --cookies COOKIES -o "/tmp/%(title)s.%(ext)s" -f "bestvideo[vcodec^=avc]+bestaudio[acodec^=aac]/best[vcodec^=avc]/best" --merge-output-format mp4 "$1"
 echo "Done."
