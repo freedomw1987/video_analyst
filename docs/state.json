@@ -1,0 +1,15 @@
+[
+  {
+    "domain": ".youtube.com",
+    "expirationDate": 1809521780.921424,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "PREF",
+    "path": "/",
+    "sameSite": null,
+    "secure": true,
+    "session": false,
+    "storeId": null,
+    "value": "f6=40000000&tz=Asia.Shanghai&f5=30000&f7=100&f4=4000000"
+  }
+]
