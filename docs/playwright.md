@@ -1,3 +1,9 @@
+---
+id: playwright
+aliases: []
+tags: []
+---
+
 # Playwright - 自動化下載影片
 
 ## 简介
@@ -56,6 +62,7 @@ from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
     page = browser.new_page()
+    page.context().storageState({ path: 'state.json' })
 
     # 監聽下載事件
     with page.expect_download() as download_info:
@@ -76,6 +83,7 @@ from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
     page = browser.new_page()
+    page.context().storageState({ path: 'state.json' })
 
     # 攔截視頻請求
     video_url = None
@@ -103,6 +111,7 @@ from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
     page = browser.new_page()
+    page.context().storageState({ path: 'state.json' })
 
     video_url = None
 
@@ -137,6 +146,7 @@ context = browser.new_context(accept_downloads=True)
 ```python
 context = browser.new_context()
 page = context.new_page()
+page.context().storageState({ path: 'state.json' })
 
 # 登錄
 page.goto("https://example.com/login")
@@ -169,6 +179,8 @@ with open("youtube_cookies.json") as f:
 context = browser.new_context()
 context.add_cookies(cookies)
 page = context.new_page()
+page.context().storageState({ path: 'state.json' })
+
 ```
 
 ### 方案二：添加隨機延遲模擬真實用戶
@@ -177,6 +189,7 @@ import random
 import time
 
 # 頁面加載後隨機滾動頁面
+page.context().storageState({ path: 'state.json' })
 page.evaluate("window.scrollBy(0, document.body.scrollHeight / 2)")
 time.sleep(random.uniform(1, 3))
 page.evaluate("window.scrollBy(0, -document.body.scrollHeight / 2)")
