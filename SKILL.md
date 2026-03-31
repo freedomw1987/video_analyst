@@ -1,9 +1,9 @@
 ---
-id: video-analyze
+id: video-analyst
 aliases: []
 tags: []
 description: 分析和解讀視頻內容，從上傳的視頻文件、YouTube 連結或 Google Drive 連結中提取信息，生成重點總結。
-name: video-analyze
+name: video-analyst
 ---
 
 # Role
