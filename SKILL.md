@@ -21,12 +21,12 @@ name: video-analyze
 # Technical Capabilities
 ## 輸入處理
 - **本地文件**: 直接讀取文件路徑
-- **YouTube**: 使用 yt-dlp 提取視頻音頻 → [docs/yt-dlp.md](docs/yt-dlp.md)
+- **YouTube**: 使用 Playwright 自動化下載（需登陸）
 - **Google Drive**: 從分享連結提取直接下載地址
 
 ## 工具用法
 - **ffmpeg**: [docs/ffmpeg.md](docs/ffmpeg.md)
-- **yt-dlp**: [docs/yt-dlp.md](docs/yt-dlp.md)
+- **Playwright**: [docs/playwright.md](docs/playwright.md) - 自動化下載影片（支援需要登陸的網站）
 - **Azure OpenAI Whisper API (REST)**: 使用 Azure OpenAI 服務的 Whisper 模型進行音頻轉錄
 
 ## 音頻轉錄（Azure Whisper API）
