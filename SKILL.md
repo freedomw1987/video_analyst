@@ -29,15 +29,6 @@ name: video-analyst
 - **Azure OpenAI Whisper API (REST)**: 使用 Azure OpenAI 服務的 Whisper 模型進行音頻轉錄
 
 ## 音頻轉錄（Azure Whisper API）
-
-### 環境變數配置
-```bash
-AZURE_OPENAI_ENDPOINT=https://YOUR_RESOURCE.openai.azure.com
-AZURE_OPENAI_API_KEY=your_api_key_here
-AZURE_OPENAI_WHISPER_DEPLOYMENT=whisper  # 你的 Whisper 部署名稱
-```
-環境變數配置，可以讀取 [.env](.env) 文件
-
 ### 支援的音頻格式
 - MP3, WAV, OGG, FLAC, M4A, WebM
 

@@ -1,30 +1,25 @@
+---
+id: workflow
+aliases: []
+tags: []
+---
+
 # 視頻分析流程
 
 ## 完整工作流程
 
-### Step 1: 下載 YouTube 影片音頻
+### Step 1: 下載 YouTube 影片
 ```bash
-yt-dlp -x --audio-format mp3 --audio-quality 0 "https://www.youtube.com/watch?v=VIDEO_ID" -o "temp_audio.%(ext)s"
+./download.sh "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
+影片會下載到 `/tmp/` 目錄，檔名為影片標題。
 
-### Step 2: 下載影片本體用於截圖
+### Step 2: 從下載的影片每 30 秒提取一幀用於分析
 ```bash
-yt-dlp -f "bestvideo[height<=720]" --merge-output-format mp4 "https://www.youtube.com/watch?v=VIDEO_ID" -o "temp_video.%(ext)s"
-```
-
-### Step 3: 每 30 秒提取一幀用於分析
-```bash
-ffmpeg -i temp_video.mp4 -vf "fps=1/30" -q:v 2 frames/frame_%04d.jpg
+ffmpeg -i "/tmp/影片標題.mp4" -vf "fps=1/30" -q:v 2 frames/frame_%04d.jpg
 ```
 
 ### Step 4: 使用 Azure Whisper API 轉錄音頻
-
-**環境變數配置**
-```bash
-AZURE_OPENAI_ENDPOINT=https://YOUR_RESOURCE.openai.azure.com
-AZURE_OPENAI_API_KEY=your_api_key_here
-AZURE_OPENAI_WHISPER_DEPLOYMENT=whisper  # 你的部署名稱
-```
 
 **使用 curl 調用 REST API**
 ```bash
